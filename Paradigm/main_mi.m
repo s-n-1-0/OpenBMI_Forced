@@ -4,9 +4,9 @@ BMI.EEG_DIR=['C:\Users\OpenBMI_Lab\Desktop\OpenBMI\data'];
 
 
 %% Artifact recording
-artifact_eyesMove({'soundDirectory',sound_dir; 'repeatTimes',10; 'blankTime',1.5; 'durationTime',1})
-artifact_theRest({'blankTime',3;'durationTime',5})
-eyesOpenClosed({'soundDirectory',in.soundDirectory; 'repeatTimes',10; 'blankTime',1.5; 'durationTime',10})
+artifact_eyesMove({'soundDirectory','D:\MyProjects\matlab\OpenBMI_Mi\Paradigm\sound'; 'repeatTimes',10; 'blankTime',1.5; 'durationTime',1})
+%artifact_theRest({'blankTime',3;'durationTime',5})
+eyesOpenClosed({'soundDirectory','D:\MyProjects\matlab\OpenBMI_Mi\Paradigm\sound'; 'repeatTimes',10; 'blankTime',1.5; 'durationTime',10})
 
 
 %% MI without feedback

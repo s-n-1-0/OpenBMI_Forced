@@ -78,7 +78,7 @@ order_task = order_task_list(order_idx,:);
 
 
 fprintf('\n    Total # of trial is %d\n',length(order_task))
-% 100°³ sample
+% 100ï¿½ï¿½ sample
 %stimuli = [1,1,2,1,1,1,1,2,1,1,1,2,1,1,1,2,1,2,1,1,1,2,1,1,2,1,1,1,1,2,1,2,1,1,1,2,1,1,1,2,1,1,1,2,1,1,1,2,1,1,1,1,1,1,1,2,1,1,1,2,1,1,2,1,1,1,1,2,1,1,1,2,1,1,1,1,2,1,1,2,1,1,1,1,1,2,1,1,1,1,1,2,1,1,2,1,1,2,1,1];
 % 600 trials
 %nn = nT/100;
@@ -147,7 +147,7 @@ nTrial = length(order_task);
 if commun(2) == true 
     write(tcp_ear, stimulusSTART); end
 if commun(1) == true
-    ppWrite(IO_ADD,tr_start); end
+    % ppWrite(IO_ADD,tr_start); end
 if commun(3) == true
     fwrite(s,uint32(tr_start),'uint32'); end
 
@@ -164,7 +164,7 @@ for i=1:nTrial
         if commun(2) == true
             write(tcp_ear, stimulusPAUSE); end
         if commun(1) == true
-            ppWrite(IO_ADD,tr_pause); end
+            % ppWrite(IO_ADD,tr_pause); end
         if commun(3) == true
             %fwrite(s,uint32(tr_pause),'uint32');
         end
@@ -183,7 +183,7 @@ for i=1:nTrial
         if commun(2) == true
             write(tcp_ear, stimulusRESUME); end
         if commun(1) == true
-            ppWrite(IO_ADD,tr_resume); end
+            % ppWrite(IO_ADD,tr_resume); end
         if commun(3) == true
             %fwrite(s,uint32(tr_resume),'uint32');
         end
@@ -203,7 +203,7 @@ for i=1:nTrial
                     if commun(2) == true
                         write(tcp_ear, stimulusEND); end
                     if commun(1) == true
-                        ppWrite(IO_ADD,tr_end); end
+                        % ppWrite(IO_ADD,tr_end); end
                     if commun(3) == true
                         fwrite(s,uint32(tr_end),'uint32'); end
                     
@@ -220,7 +220,7 @@ for i=1:nTrial
                     if commun(2) == true
                         write(tcp_ear, stimulusPAUSE); end
                     if commun(1) == true
-                        ppWrite(IO_ADD,tr_pause); end
+                        % ppWrite(IO_ADD,tr_pause); end
                     if commun(3) == true
                         %fwrite(s,uint32(tr_pause),'uint32');
                     end
@@ -240,7 +240,7 @@ for i=1:nTrial
                     if commun(2) == true
                         write(tcp_ear, stimulusRESUME); end
                     if commun(1) == true
-                        ppWrite(IO_ADD,tr_resume); end
+                        % ppWrite(IO_ADD,tr_resume); end
                     if commun(3) == true
                         %fwrite(s,uint32(tr_resume),'uint32');
                     end
@@ -269,12 +269,12 @@ for i=1:nTrial
     if commun(2) == true
         eval(sprintf('write(tcp_ear, stimulus%d)',sti)); end
     if commun(1) == true
-        ppWrite(IO_ADD,trig(sti)); end
+        % ppWrite(IO_ADD,trig(sti)); end
     if commun(3) == true
         fwrite(s,uint32(sti),'uint32'); end
     
     
-    fprintf('Trial #%.d \t Target %.d \t ¼Ò¿ä½Ã°£: %.4f \n',i, order_task(i), dur_time);
+    fprintf('Trial #%.d \t Target %.d \t ï¿½Ò¿ï¿½Ã°ï¿½: %.4f \n',i, order_task(i), dur_time);
     nTarget = nTarget+ sti-1;
     fprintf('Number of Target %d\n', nTarget);
     
@@ -292,7 +292,7 @@ end
 if commun(2) == true 
     write(tcp_ear, stimulusEND); end
 if commun(1) == true
-    ppWrite(IO_ADD,tr_end); end
+    % ppWrite(IO_ADD,tr_end); end
 if commun(3) == true
     fwrite(s,uint32(tr_end),'uint32'); end
 

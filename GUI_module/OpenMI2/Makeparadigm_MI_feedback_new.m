@@ -2,7 +2,7 @@ function [ output_args ] = Makeparadigm_MI_feedback_new(varargin )
 
 opt=opt_cellToStruct(varargin{:});
 n1=0;n2=0;n3=0;
-FOOTfb=3; % ÀÌ ºÎºÐ.... ¾îÂîÇØ¾ßµÇ³Ä...
+FOOTfb=3; % ï¿½ï¿½ ï¿½Îºï¿½.... ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ßµÇ³ï¿½...
 
 %% default setting
 if isempty(opt.time_sti), time_sti=3; else time_sti=opt.time_sti; end
@@ -86,7 +86,7 @@ end
 %% fixation cross
 CrossSize = 20;
 FixCross = [X-1,Y-CrossSize,X+1,Y+CrossSize;X-CrossSize,Y-1,X+CrossSize,Y+1];
-% screen size º¯È­¿¡ µû¸¥, È­»ìÇ¥ size º¯È­... ¸¦ ÇÑ°Çµ¥... À½...
+% screen size ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, È­ï¿½ï¿½Ç¥ size ï¿½ï¿½È­... ï¿½ï¿½ ï¿½Ñ°Çµï¿½... ï¿½ï¿½...
 % ssize=[X-size_screen(1)/4,Y-size_screen(1)/5,X+size_screen(1)/4,Y+size_screen(1)/5];
 
 %% beep setting
@@ -114,19 +114,19 @@ Screen('TextSize',w, Textsize);
 DrawFormattedText(w,'Mouse click to start MI experiment \n\n (Press s to pause, esc to stop)','center','center',[255 255 255]);
 Screen('Flip', w);
 GetClicks(w);
-ppWrite(IO_ADD,111)
+% ppWrite(IO_ADD,111)
 
 % %% Eyes open/closed
 % eyesOpenClosed2([0 0 0]) % script
 
 %% paradigm start
 Screen('Flip', w);
-ppWrite(IO_ADD,111);
+% ppWrite(IO_ADD,111);
 WaitSecs(time_blank);
 
 for num_stimulus=1:length(sti_stack)
 
-    if num_stimulus==length(sti_stack)/2 && length(sti_stack)>30%75 %~rem(num_stimulus,90) % 30È¸¸¶´Ù pause
+    if num_stimulus==length(sti_stack)/2 && length(sti_stack)>30%75 %~rem(num_stimulus,90) % 30È¸ï¿½ï¿½ï¿½ï¿½ pause
         Screen('TextSize',w, 50);
         DrawFormattedText(w,'Rest\n\n(Pause the brain vision)','center','center',[255 255 255]);
         Screen('Flip', w);
@@ -148,7 +148,7 @@ for num_stimulus=1:length(sti_stack)
                 Screen('Flip', w);
                 WaitSecs(1);
                 Screen('CloseAll');
-                ppWrite(IO_ADD,222);
+                % ppWrite(IO_ADD,222);
                 fclose('all');
                 return
             elseif keyCode(waitKey)
@@ -165,20 +165,20 @@ for num_stimulus=1:length(sti_stack)
     if sound
         Snd('Play',beep);
     end
-    ppWrite(IO_ADD,15);
+    % ppWrite(IO_ADD,15);
     WaitSecs(time_cross);
     switch sti_stack(num_stimulus)
         case 1
             n1=n1+1;
-            ppWrite(IO_ADD,sti_stack(num_stimulus));
+            % ppWrite(IO_ADD,sti_stack(num_stimulus));
             image=img_right;
         case 2
             n2=n2+1;
-            ppWrite(IO_ADD,sti_stack(num_stimulus));
+            % ppWrite(IO_ADD,sti_stack(num_stimulus));
             image=img_left;
         case 3
             n3=n3+1;
-            ppWrite(IO_ADD,sti_stack(num_stimulus));
+            % ppWrite(IO_ADD,sti_stack(num_stimulus));
             image=img_down;
     end
     
@@ -236,7 +236,7 @@ for num_stimulus=1:length(sti_stack)
 end
 
 
-ppWrite(IO_ADD,222);
+% ppWrite(IO_ADD,222);
 Screen('TextSize',w, 50);
 DrawFormattedText(w, 'Thank you', 'center', 'center', [255 255 255]);
 ShowCursor;

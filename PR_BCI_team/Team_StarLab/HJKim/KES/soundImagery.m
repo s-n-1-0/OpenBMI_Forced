@@ -72,18 +72,18 @@ Screen('TextSize',w, 50);
 DrawFormattedText(w,'Closed your eyes\n\nPlease follow instructions\n\nClick to start','center','center',[255 255 255]);
 Screen('Flip', w);
 GetClicks(w);
-ppWrite(IO_ADD,77);
+% ppWrite(IO_ADD,77);
 Screen('Flip', w);
 WaitSecs(rs_time);
-ppWrite(IO_ADD, 14);
+% ppWrite(IO_ADD, 14);
 DrawFormattedText(w,'Recording Resting state\n\nPlease follow instructions\n\nClick to start','center','center',[255 255 255]);
 Screen('Flip', w);
 GetClicks(w);
-ppWrite(IO_ADD,78);
+% ppWrite(IO_ADD,78);
 Screen('FillRect', w, [255 255 255], FixCross');
 Screen('Flip', w);
 WaitSecs(rs_time);
-ppWrite(IO_ADD, 14);
+% ppWrite(IO_ADD, 14);
 DrawFormattedText(w,'It will start in 3 secs','center','center',[255 255 255]);
 Screen('Flip', w);
 GetClicks(w);
@@ -102,7 +102,7 @@ for i = 1:10
     xLines = xLinesInit;
     a = GetSecs();
     Snd('Play',beepY,rate);
-    ppWrite(IO_ADD, 15);
+    % ppWrite(IO_ADD, 15);
     WaitSecs(1);
 
     tic;
@@ -114,10 +114,10 @@ for i = 1:10
         Screen('DrawLines', w, centLineCoords, ...
             centLineWidth, centColor, [xCent, yCent], 2);
         %         Screen('DrawingFinished', w);
-        %         if any(and((xLines >= -xStep/2),(xLines < xStep/2))) -> Jittering »ç¶óÁ®¼­ ÁÖ¼®Ã³¸®
+        %         if any(and((xLines >= -xStep/2),(xLines < xStep/2))) -> Jittering ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½Ã³ï¿½ï¿½
         if any(xLines == 0)
             trig = trigOrd(ceil(find(xLines==0, 1)/2));
-            ppWrite(IO_ADD,trig);
+            % ppWrite(IO_ADD,trig);
             disp(toc);
             tic;
         elseif any(xLines == xStep*7)
@@ -139,15 +139,15 @@ end
 DrawFormattedText(w,'Recording Resting state\n\nPlease follow instructions\n\nClick to start','center','center',[255 255 255]);
 Screen('Flip', w);
 GetClicks(w);
-ppWrite(IO_ADD,78);
+% ppWrite(IO_ADD,78);
 Screen('FillRect', w, [255 255 255], FixCross');
 Screen('Flip', w);
 WaitSecs(rs_time);
-ppWrite(IO_ADD, 14);
+% ppWrite(IO_ADD, 14);
 DrawFormattedText(w,'THANK YOU','center','center',[255 255 255]);
 Screen('Flip', w);
 WaitSecs(3);
-ppWrite(IO_ADD, 222);
+% ppWrite(IO_ADD, 222);
 fwrite(sock, 2);
 sca;
 end

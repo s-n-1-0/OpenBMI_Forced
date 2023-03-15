@@ -11,7 +11,7 @@ timeRest = 2;
 
 copy_text = 'KOREA_UNIVERSITY';
 copy_task = [11, 15, 18, 5, 1, 36, 21, 14, 9, 22, 5, 18, 19, 9, 20, 25]; % KOREA_UNIVERSITY
-order = importdata('C:\Users\cvpr\Desktop\»ï¼º\ambulatory\paradigm\visual_ERP\func\random_order_v3.mat');
+order = importdata('C:\Users\cvpr\Desktop\ï¿½ï¼º\ambulatory\paradigm\visual_ERP\func\random_order_v3.mat');
 
 %% keys setting
 startKey=KbName('space');
@@ -122,11 +122,11 @@ Screen('FillRect', w, black);
 WaitSecs(2);
 Screen('TextSize', w, ceil(10));
 
-for n_char = 1:length(copy_task) %%korea university ºÎºÐ
-     %% Pause ½ÇÇè ¹Ý ÇÏ°í Á» ½¬¾î¾ßÁö
+for n_char = 1:length(copy_task) %%korea university ï¿½Îºï¿½
+     %% Pause ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ï°ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
      if (rem(n_char,16)==1) 
         write(tcp_ear, stimulusPAUSE);
-        ppWrite(IO_ADD,tr_pause);
+        % ppWrite(IO_ADD,tr_pause);
         fwrite(s,uint32(tr_pause),'uint32');
         if (n_char~=1)
             [ keyIsDown, ~, keyCode ] = KbCheck;
@@ -143,7 +143,7 @@ for n_char = 1:length(copy_task) %%korea university ºÎºÐ
             WaitSecs(3);
         end
         write(tcp_ear, stimulusRESUME);
-        ppWrite(IO_ADD,tr_resume);
+        % ppWrite(IO_ADD,tr_resume);
         fwrite(s,uint32(tr_resume),'uint32');
     end
     fprintf('Trial #%.d \t Target %.d \n',n_char, copy_task(n_char));
@@ -168,10 +168,10 @@ for n_char = 1:length(copy_task) %%korea university ºÎºÐ
     WaitSecs(0.5);
     Screen('CopyWindow', offw, w);
     Screen('Flip', w);
-%     ppWrite(IO_ADD,p_trig);  % 15 start
+%     % ppWrite(IO_ADD,p_trig);  % 15 start
     WaitSecs(2);
     
-    for  n_seq = 1:nSequence %nsequence ¸¸Å­ ÇÏ³ªÀÇ target character¸¦ ¹Ýº¹
+    for  n_seq = 1:nSequence %nsequence ï¿½ï¿½Å­ ï¿½Ï³ï¿½ï¿½ï¿½ target characterï¿½ï¿½ ï¿½Ýºï¿½
         Screen('TextSize',w, ceil(text_size/2));
         for n_run=1:12       %run 6X6 speller
             Screen('CopyWindow', offw, w);
@@ -186,14 +186,14 @@ for n_char = 1:length(copy_task) %%korea university ºÎºÐ
                         
             vbl = Screen('Flip', w, 0, 1);
             %% trigger
-            trig = ismember(Draw_cell, target_ind);  %% Å¸°ÙºÎºÐÀÏ°æ¿ì¸¸ trigger
+            trig = ismember(Draw_cell, target_ind);  %% Å¸ï¿½ÙºÎºï¿½ï¿½Ï°ï¿½ì¸¸ trigger
             if sum(trig)      %target
                 write(tcp_ear, stim_t)
-                ppWrite(IO_ADD,t_trig);
+                % ppWrite(IO_ADD,t_trig);
                 fwrite(s,uint32(t_trig),'uint32');
             else            %non-target
                 write(tcp_ear, stim_n)
-                ppWrite(IO_ADD,n_trig);
+                % ppWrite(IO_ADD,n_trig);
                 fwrite(s,uint32(n_trig),'uint32');
             end
             Screen('Flip', w, vbl + sti_Times);
@@ -206,7 +206,7 @@ for n_char = 1:length(copy_task) %%korea university ºÎºÐ
     Screen('Flip', w);
     
     WaitSecs(1);
-%     ppWrite(IO_ADD,14); %online ÆÄÀÏÀÇ c_"nÃÊ±âÈ­->eog switch°¡ ¾Èµé¾î¿Àµµ·Ï
+%     % ppWrite(IO_ADD,14); %online ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ c_"nï¿½Ê±ï¿½È­->eog switchï¿½ï¿½ ï¿½Èµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
     tic;
     while toc < timeRest
@@ -224,7 +224,7 @@ for n_char = 1:length(copy_task) %%korea university ºÎºÐ
                 return;
             elseif keyCode(waitKey)
                 write(tcp_ear, stimulusPAUSE);
-                ppWrite(IO_ADD,tr_pause);
+                % ppWrite(IO_ADD,tr_pause);
                 fwrite(s,uint32(tr_pause),'uint32');
                 while ~keyCode(startKey)
                     Screen('FillRect', w, black);
@@ -239,7 +239,7 @@ for n_char = 1:length(copy_task) %%korea university ºÎºÐ
                 WaitSecs(3);
                 
                 write(tcp_ear, stimulusRESUME);
-                ppWrite(IO_ADD,tr_resume);
+                % ppWrite(IO_ADD,tr_resume);
                 fwrite(s,uint32(tr_resume),'uint32');
             end
         end

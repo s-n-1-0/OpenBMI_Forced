@@ -24,36 +24,36 @@ stimulusSTART=[padding; uint64(101); timestamp];    % start trigger
 stimulusEND=[padding; uint64(201); timestamp];     % end trigger
      
 write(tcp_ear, stimulusSTART);
-ppWrite(IO_ADD,101);  
+% ppWrite(IO_ADD,101);  
 %
 vis_ERP_paradigm_ambulatory(trig_vis_erp, nSequence)
 %
 write(tcp_ear, stimulusEND);
-ppWrite(IO_ADD,201);
+% ppWrite(IO_ADD,201);
 
 %% vis ERP 3 km/s
 stimulusSTART=[padding; uint64(102); timestamp];    % start trigger
 stimulusEND=[padding; uint64(202); timestamp];    % end trigger
 
 write(tcp_ear, stimulusSTART);
-ppWrite(IO_ADD,102); 
+% ppWrite(IO_ADD,102); 
 % 
 vis_ERP_paradigm_ambulatory(trig_vis_erp, nSequence)
 %   
 write(tcp_ear, stimulusEND);
-ppWrite(IO_ADD,202);
+% ppWrite(IO_ADD,202);
 
 %% vis ERP 6 km/h
 stimulusSTART=[padding; uint64(103); timestamp];    % start trigger
 stimulusEND=[padding; uint64(203); timestamp];    % end trigger
 
 write(tcp_ear, stimulusSTART);  
-ppWrite(IO_ADD,103);
+% ppWrite(IO_ADD,103);
 %    
 vis_ERP_paradigm_ambulatory(trig_vis_erp, nSequence)
 %
 write(tcp_ear, stimulusEND);
-ppWrite(IO_ADD,203);
+% ppWrite(IO_ADD,203);
 %% %%%%%%%%%%%%%%%%%%%%  Auditory ERP   %%%%%%%%%%%%%%%%%%%%%%%%%%
 %% setting
 % class = {'stand','1.6', '2.0'}; % 0 3 6 km/h 
@@ -71,36 +71,36 @@ stimulusSTART=[padding; uint64(301); timestamp];    % start trigger
 stimulusEND=[padding; uint64(401); timestamp];     % end trigger
         
 write(tcp_ear, stimulusSTART);
-ppWrite(IO_ADD,301); 
+% ppWrite(IO_ADD,301); 
 %
 aud_ERP_paradigm_ambulatory(trig_erp, nTrial)
 %  
 write(tcp_ear, stimulusEND);
-ppWrite(IO_ADD,401);
+% ppWrite(IO_ADD,401);
 
 %% aud ERP 3 km/s
 stimulusSTART=[padding; uint64(302); timestamp];    % start trigger
 stimulusEND=[padding; uint64(402) ; timestamp];    % end trigger
       
 write(tcp_ear, stimulusSTART);
-ppWrite(IO_ADD,302);  
+% ppWrite(IO_ADD,302);  
 % 
 aud_ERP_paradigm_ambulatory(trig_erp, nTrial)
 %   
 write(tcp_ear, stimulusEND);
-ppWrite(IO_ADD,402);
+% ppWrite(IO_ADD,402);
 
 %% aud ERP 6 km/h   
 stimulusSTART=[padding; uint64(303); timestamp];    % start trigger
 stimulusEND=[padding; uint64(403); timestamp];    % end trigger
 
 write(tcp_ear, stimulusSTART);  
-ppWrite(IO_ADD,303);
+% ppWrite(IO_ADD,303);
 %    
 aud_ERP_paradigm_ambulatory(trig_erp, nTrial)
 %
 write(tcp_ear, stimulusEND);
-ppWrite(IO_ADD,403);
+% ppWrite(IO_ADD,403);
 %% %%%%%%%%%%%%%%%%%%%%%%   SSVEP   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% setting
 % 12, 8.57, 5.45, 3.53 Hz 
@@ -114,34 +114,34 @@ stimulusSTART=[padding; uint64(501); timestamp];    % start trigger
 stimulusEND=[padding; uint64(601); timestamp];    % end trigger
 
 write(tcp_ear, stimulusSTART);
-ppWrite(IO_ADD,501); 
+% ppWrite(IO_ADD,501); 
 % 
 SSVEP_paradigm_ambulatory(trig_ssvep,nTrial)
 %
 write(tcp_ear, stimulusEND);
-ppWrite(IO_ADD,601);
+% ppWrite(IO_ADD,601);
 %% SSVEP 3 km/h
 stimulusSTART=[padding; uint64(502); timestamp];    % start trigger
 stimulusEND=[padding; uint64(602); timestamp];    % end trigger
 
 write(tcp_ear, stimulusSTART);
-ppWrite(IO_ADD,502);
+% ppWrite(IO_ADD,502);
 % 
 SSVEP_paradigm_ambulatory(trig_ssvep,nTrial)
 %
 write(tcp_ear, stimulusEND);
-ppWrite(IO_ADD,602);
+% ppWrite(IO_ADD,602);
 
 %% SSVEP 6 km/h
 stimulusSTART=[padding; uint64(503); timestamp];    % start trigger
 stimulusEND=[padding; uint64(603); timestamp];    % end trigger
 
 write(tcp_ear, stimulusSTART);
-ppWrite(IO_ADD,503);
+% ppWrite(IO_ADD,503);
 % 
 SSVEP_paradigm_ambulatory(trig_ssvep,nTrial)
 %
 write(tcp_ear, stimulusEND);
-ppWrite(IO_ADD,603);
+% ppWrite(IO_ADD,603);
 
 

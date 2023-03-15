@@ -612,7 +612,7 @@ function Triggercheck_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% % % % Àü¹ÝÀûÀ¸·Î Á» fancyÇÏ°Ô ´ÙµëÀ» ÇÊ¿ä°¡ ÀÌµû
+% % % % ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ fancyï¿½Ï°ï¿½ ï¿½Ùµï¿½ï¿½ï¿½ ï¿½Ê¿ä°¡ ï¿½Ìµï¿½
 bbci_acquire_bv('close');
 port=get(handles.TriggerPort,'String');
 global IO_ADDR IO_LIB;
@@ -625,24 +625,24 @@ state = bbci_acquire_bv('init', params);
 buffer_size=5000;
 data_size=5000;
 feedback_t=100/1000; % feedback frequency
-Dat=zeros(buffer_size, size(1:32,2)); % 1:32 Ã¤³Î ÀÎµ¦½º ÀÌ°Å...
-% ÇÊ¿äÇÑ Æ®¸®°Å °³ ¼ö ¸¸Å­ ³¯·ÁÁÖ°í ´Ù Á¦´ë·Î ³¯¾Æ°¡´ÂÁö È®ÀÎ...ÇÏ´Â ¹æ½ÄÀÎµ¥...
-% ÀÚ±ØÀÇ °³¼ö¸¦ ¹Þ¾Æ¿À°í
-% waitSecsÀ» 0.5 ·Î ÇØ‡J´Âµ¥... ¿ä°ÍÀÌ....
+Dat=zeros(buffer_size, size(1:32,2)); % 1:32 Ã¤ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ ï¿½Ì°ï¿½...
+% ï¿½Ê¿ï¿½ï¿½ï¿½ Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Å­ ï¿½ï¿½ï¿½ï¿½ï¿½Ö°ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ°ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½...ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½Îµï¿½...
+% ï¿½Ú±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¾Æ¿ï¿½ï¿½ï¿½
+% waitSecsï¿½ï¿½ 0.5 ï¿½ï¿½ ï¿½Ø‡Jï¿½Âµï¿½... ï¿½ï¿½ï¿½ï¿½ï¿½....
 qwe=0;
-ppWrite(IO_ADDR,111);WaitSecs(0.5); % ½ÃÀÛ Æ®¸®°Å °°°í
+% ppWrite(IO_ADDR,111);WaitSecs(0.5); % ï¿½ï¿½ï¿½ï¿½ Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 [data, markertime, markerdescr, state] = bbci_acquire_bv(state);
 if markerdescr==111
     qwe=qwe+1;
 end
 
-ppWrite(IO_ADDR,5);WaitSecs(0.5); % Áß°£¿¡ +?beep? ¿¡ ´ëÇÑ Æ®¸®°Å °°°í
+% ppWrite(IO_ADDR,5);WaitSecs(0.5); % ï¿½ß°ï¿½ï¿½ï¿½ +?beep? ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 [data, markertime, markerdescr, state] = bbci_acquire_bv(state);
 if markerdescr==5
     qwe=qwe+1;
 end
 
-ppWrite(IO_ADDR,222);WaitSecs(0.5); % ³¡³¯¶§ Æ®¸®°Å °°°í
+% ppWrite(IO_ADDR,222);WaitSecs(0.5); % ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 [data, markertime, markerdescr, state] = bbci_acquire_bv(state);
 if markerdescr==222
     qwe=qwe+1;
@@ -659,19 +659,19 @@ else
     N_class=3;
 end
 
-% ÇÊ¿äÇÑ ÀÚ±ØÀÇ °³¼ö
+% ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½Ú±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 sti1=get(handles.Stimulus1,'Value');
 sti2=get(handles.Stimulus2,'Value');
 sti3=get(handles.Stimulus3,'Value');
 if sti1
-    ppWrite(IO_ADDR,1);WaitSecs(0.5);
+    % ppWrite(IO_ADDR,1);WaitSecs(0.5);
     [data, markertime, markerdescr, state] = bbci_acquire_bv(state);
     if markerdescr==1
         qwe=qwe+1;
     end
 end
 if sti2
-    ppWrite(IO_ADDR,2);;WaitSecs(0.5);
+    % ppWrite(IO_ADDR,2);;WaitSecs(0.5);
     [data, markertime, markerdescr, state] = bbci_acquire_bv(state);
     if markerdescr==2
         qwe=qwe+1;
@@ -679,7 +679,7 @@ if sti2
 %     [data, markertime, markerdescr, state] = bbci_acquire_bv(state);
 end
 if sti3
-    ppWrite(IO_ADDR,3);;WaitSecs(0.5);
+    % ppWrite(IO_ADDR,3);;WaitSecs(0.5);
     [data, markertime, markerdescr, state] = bbci_acquire_bv(state);
     if markerdescr==3
         qwe=qwe+1;

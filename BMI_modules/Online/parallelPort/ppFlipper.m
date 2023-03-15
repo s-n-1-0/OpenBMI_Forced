@@ -8,5 +8,5 @@ function ppFlipper(data)
 % kraulem 07/07
 
 global IO_ADDR
-ppWriteStay(IO_ADDR, data);
+% ppWriteStay(IO_ADDR, data);
 return;

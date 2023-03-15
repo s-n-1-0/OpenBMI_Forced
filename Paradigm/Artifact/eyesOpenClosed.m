@@ -1,4 +1,5 @@
 function eyesOpenClosed(varargin)
+return
 % Example:
 %    eyesOpenClosed({'soundDirectory',in.soundDirectory; 'repeatTimes',10; 'blankTime',1.5; 'durationTime',10})
 in=opt_cellToStruct(varargin{:});
@@ -15,7 +16,7 @@ global IO_ADDR IO_LIB;
 IO_ADDR=hex2dec('D010');
 IO_LIB=which('inpoutx64.dll');
 
-
+return
 Screen('Preference', 'SkipSyncTests', 2);
 
 screens=Screen('Screens');

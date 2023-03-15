@@ -5,10 +5,10 @@ function SSVEP_paradigm_ambulatory(trig, nT, commun,scrNum,order_idx)
 % numTrial=50; % 50 * 3 stimulus = 150 trials (25  min)
 
 % stimulus parameters
-rest_nT = 15; % ¸î¹ø¸¶´Ù ½¯°ÇÁö 
+rest_nT = 15; % ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 timeCue=1.5; timeSti=5; timeRest=2; 
 % timeCue=0.5; timeSti=2; timeRest=1; % test
-freq=[11 7 5];  % 5.45, 8.57, 12 Hz // 5-20 Hz ÇØ¾ß µÊ  freq=[17 11 7 5]; 
+freq=[11 7 5];  % 5.45, 8.57, 12 Hz // 5-20 Hz ï¿½Ø¾ï¿½ ï¿½ï¿½  freq=[17 11 7 5]; 
 
 % screen parameters
 size_reduce = 0.5;
@@ -69,7 +69,7 @@ order_task = order_task_list(order_idx,:);
 wd=wRect(3); h=wRect(4);
 
 if length(freq) == 4
-% 1 2 4 5 À§Ä¡
+% 1 2 4 5 ï¿½ï¿½Ä¡
 x1=[wd/2-boxSize/2, wd/2-3*boxSize/2-btwBox, wd/2+boxSize/2+btwBox, wd/2-boxSize/2];
 x2=[wd/2+boxSize/2, wd/2-boxSize/2-btwBox, wd/2+3*boxSize/2+btwBox, wd/2+boxSize/2];
 y1=[h/2-3*boxSize/2-btwBox, h/2-boxSize/2,h/2-boxSize/2, h/2+boxSize/2+btwBox];
@@ -77,7 +77,7 @@ y2=[h/2-boxSize/2-btwBox, h/2+boxSize/2, h/2+boxSize/2, h/2+3*boxSize/2+btwBox];
 end
 
 if length(freq) == 3
-% 2 3 4 À§Ä¡
+% 2 3 4 ï¿½ï¿½Ä¡
 x1=[wd/2-3*boxSize/2-btwBox, wd/2-boxSize/2, wd/2+boxSize/2+btwBox];
 x2=[wd/2-boxSize/2-btwBox, wd/2+boxSize/2, wd/2+3*boxSize/2+btwBox];
 y1=[h/2-boxSize/2, h/2-boxSize/2, h/2-boxSize/2];
@@ -158,21 +158,21 @@ a1=0; a2=0; at=0;
 if commun(2) == true 
     write(tcp_ear, stimulusSTART); end
 if commun(1) == true
-    ppWrite(IO_ADD,tr_start); end
+    % ppWrite(IO_ADD,tr_start); end
 if commun(3) == true
     fwrite(s,uint32(tr_start),'uint32'); end
 
 for t=1:length(order_task)
     
     Priority(topPriorityLevel);
-    %% Pause ½ÇÇè ¹Ý ÇÏ°í Á» ½¬¾î¾ßÁö
+    %% Pause ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ï°ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 %     if ( t == ceil(length(order_task)/2) ) %&& ( length(order_task) > 50 )
      if (rem(t,rest_nT)==1) 
         % rest
         if commun(2) == true
             write(tcp_ear, stimulusPAUSE); end
         if commun(1) == true
-            ppWrite(IO_ADD,tr_pause); end
+            % ppWrite(IO_ADD,tr_pause); end
         if commun(3) == true
             %fwrite(s,uint32(tr_pause),'uint32');
         end
@@ -197,7 +197,7 @@ for t=1:length(order_task)
         if commun(2) == true
             write(tcp_ear, stimulusRESUME); end
         if commun(1) == true
-            ppWrite(IO_ADD,tr_resume); end
+            % ppWrite(IO_ADD,tr_resume); end
         if commun(3) == true
             %fwrite(s,uint32(tr_resume),'uint32');
         end
@@ -232,7 +232,7 @@ for t=1:length(order_task)
     if commun(2) == true
         eval(sprintf('write(tcp_ear, stimulus%d)',ot)); end
     if commun(1) == true
-        ppWrite(IO_ADD,trig(ot)); end
+        % ppWrite(IO_ADD,trig(ot)); end
     if commun(3) == true
         fwrite(s,uint32(ot),'uint32'); end 
   
@@ -268,7 +268,7 @@ for t=1:length(order_task)
                 if commun(2) == true
                     write(tcp_ear, stimulusEND); end
                 if commun(1) == true
-                    ppWrite(IO_ADD,tr_end); end
+                    % ppWrite(IO_ADD,tr_end); end
                 if commun(3) == true
                     fwrite(s,uint32(tr_end),'uint32'); end
                 
@@ -285,7 +285,7 @@ for t=1:length(order_task)
                 if commun(2) == true
                     write(tcp_ear, stimulusPAUSE); end
                 if commun(1) == true
-                    ppWrite(IO_ADD,tr_pause); end
+                    % ppWrite(IO_ADD,tr_pause); end
                 if commun(3) == true
                     %fwrite(s,uint32(tr_pause),'uint32');
                 end
@@ -304,7 +304,7 @@ for t=1:length(order_task)
                 if commun(2) == true
                     write(tcp_ear, stimulusRESUME); end
                 if commun(1) == true
-                    ppWrite(IO_ADD,tr_resume); end
+                    % ppWrite(IO_ADD,tr_resume); end
                 if commun(3) == true
                     %fwrite(s,uint32(tr_resume),'uint32');
                 end
@@ -320,7 +320,7 @@ end
 if commun(2) == true
     write(tcp_ear, stimulusEND); end
 if commun(1) == true
-    ppWrite(IO_ADD,tr_end); end
+    % ppWrite(IO_ADD,tr_end); end
 if commun(3) == true
     fwrite(s,uint32(tr_end),'uint32'); end
 

@@ -1,4 +1,5 @@
 function artifact_eyesMove(varargin)
+return
 % Example:
 %    artifact_eyesMove({'soundDirectory',sound_dir; 'repeatTimes',10; 'blankTime',1.5; 'durationTime',1})
 
@@ -24,12 +25,13 @@ IO_ADDR=hex2dec('D010');
 IO_LIB=which('inpoutx64.dll');
 
 
-Screen('Preference', 'SkipSyncTests', 2);
+Screen('Preference', 'SkipSyncTests', 1);
 
 screens=Screen('Screens');
 screenNumber=max(screens);
 gray=GrayIndex(screenNumber);
-[w, wRect]=Screen('OpenWindow', 2, gray);
+return
+[w, wRect]=Screen('OpenWindow', 1, gray);
 
 Screen('TextSize',w, 50);
 DrawFormattedText(w, 'Click to start an experiment', 'center', 'center', [0 0 0]);

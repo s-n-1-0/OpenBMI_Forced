@@ -9,7 +9,7 @@ function ppTrigger(value,raiseTime, delayTime)
 %   ppTrigger(value, raiseTime, delayTime)
 %
 % Description:
-%   The function uses ppWrite to write a value on the parallel port if 
+%   The function uses % ppWrite to write a value on the parallel port if 
 %   the global variable IO_ADDR is set. If the global variable 
 %   NOUZZ_UDP_SOCKET is set the values are also send via udp.
 %
@@ -33,11 +33,11 @@ global NOUZZ_UDP_SOCKET
 
 if ~isempty(IO_ADDR)
     if exist('delayTime','var')
-      ppWrite(IO_ADDR, value, raiseTime, delayTime);
+      % ppWrite(IO_ADDR, value, raiseTime, delayTime);
     elseif exist('raiseTime','var')
-      ppWrite(IO_ADDR, value, raiseTime);
+      % ppWrite(IO_ADDR, value, raiseTime);
     else
-      ppWrite(IO_ADDR, value);
+      % ppWrite(IO_ADDR, value);
     end
 end
 

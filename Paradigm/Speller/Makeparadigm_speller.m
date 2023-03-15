@@ -40,12 +40,12 @@ spell_num=reshape(1:36,[6,6]);
 flickering_order=zeros(12,10,length(test_character)); % (#flick/seq)x(#seq)x(#char)
 cell_order_all=zeros(length(flickering_order(:)),6);
 for ch=1:length(test_character)
-    flickering_order(:,:,ch)=Shuffle(repmat([1:12]',[1,10])); % °¢ ±ÛÀÚ¸¶´Ù 120¹ø¾¿ flickering
+    flickering_order(:,:,ch)=Shuffle(repmat([1:12]',[1,10])); % ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ï¿½ï¿½ 120ï¿½ï¿½ï¿½ï¿½ flickering
 end
 for fk=1:length(flickering_order(:))
-    if flickering_order(fk)<=6      % 1~6±îÁø Çà
+    if flickering_order(fk)<=6      % 1~6ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
         cell_order_all(fk,:)= spell_num(flickering_order(fk),:);
-    else                            % 7~12´Â ¿­
+    else                            % 7~12ï¿½ï¿½ ï¿½ï¿½
         cell_order_all(fk,:)= spell_num(:,(flickering_order(fk)-6));
     end
 end
@@ -74,15 +74,15 @@ p300_sti=0;
 
 
 target_on=false; % p300 target
-count_sequence=0; % p300 ÇÑ ½ÃÄö½º 12
+count_sequence=0; % p300 ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 12
 n_sequence=0;
-count_run=0; % p300 ÇÑÁÙ 6
+count_run=0; % p300 ï¿½ï¿½ï¿½ï¿½ 6
 % cell_order_all=[];
 
 run_p300=true;
 
-slack=ifi/2; %% ½ÃÀÛºÎºÐ timer
-begin_Times = 2; % ½ÃÀÛ Àü ½Ã°£
+slack=ifi/2; %% ï¿½ï¿½ï¿½ÛºÎºï¿½ timer
+begin_Times = 2; % ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ã°ï¿½
 count_speed = 1; % count-down speed
 normal_layout(w, test_character_show, spell_char, loc_layout, n_text_size);
 
@@ -90,7 +90,7 @@ begin_onset = Screen('Flip',w);
 % load cell_order
 
 pause(1);
-% ppWrite(IO_ADD,111);
+% % ppWrite(IO_ADD,111);
 
 for cur_char = 1:length(test_character)
     target_ind = find(test_character(cur_char) == spell_char); %find the positions for target
@@ -103,8 +103,8 @@ for cur_char = 1:length(test_character)
     start_0 = Screen('Flip', w, begin_onset + begin_Times - slack);
     
     
-    %% target±ÛÀÚ º¸¿©ÁÖ±â
-    normal_layout(w, test_character_show, spell_char, loc_layout, n_text_size); %smkim(Ãß°¡)
+    %% targetï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½
+    normal_layout(w, test_character_show, spell_char, loc_layout, n_text_size); %smkim(ï¿½ß°ï¿½)
     Screen('TextFont',w, 'Arial');
     Screen('TextSize',w, ceil(n_text_size/2.5));
     Screen('TextStyle', w, 0);
@@ -162,7 +162,7 @@ for cur_char = 1:length(test_character)
             end
         end
         
-        normal_layout(w, test_character_show, spell_char, loc_layout, n_text_size); %smkim(Ãß°¡)
+        normal_layout(w, test_character_show, spell_char, loc_layout, n_text_size); %smkim(ï¿½ß°ï¿½)
         
         Screen('TextFont',w, 'Arial');
         Screen('TextSize',w, ceil(n_text_size/2.5));
@@ -186,17 +186,17 @@ for cur_char = 1:length(test_character)
                 count_sequence=count_sequence+1;
                 
                 target_on=true;
-                a = ismember(cell_order_all(count_run,:), target_ind); %% Å¸°ÙºÎºÐÀÏ°æ¿ì¸¸ trigger
+                a = ismember(cell_order_all(count_run,:), target_ind); %% Å¸ï¿½ÙºÎºï¿½ï¿½Ï°ï¿½ì¸¸ trigger
                 if sum(a)       % target
-%                     ppWrite(IO_ADD,1);
+%                     % ppWrite(IO_ADD,1);
                 else            % non-target
-%                     ppWrite(IO_ADD,2);
+%                     % ppWrite(IO_ADD,2);
                 end
             end
             
             if target_on
                 p300_sti=p300_sti+sti; sti=0;
-                if p300_sti<0.09 % 0.09µ¿¾È¸¸ Å¸°ÙÀÌ µé¾î¿Àµµ·Ï  **   p300 sti
+                if p300_sti<0.09 % 0.09ï¿½ï¿½ï¿½È¸ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  **   p300 sti
                     for j = 1:6 % target
                         str_num=cell_order_all(count_run,j);
                         textbox = Screen('TextBounds', w, spell_char(str_num));
@@ -215,7 +215,7 @@ for cur_char = 1:length(test_character)
         p300_interval = p300_interval + (vbl-prevVbl);
         prevVbl = vbl;
         
-        %% loop Á¾·á ¹®
+        %% loop ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
         if count_sequence==12
             n_sequence=n_sequence+1;
             count_sequence=0;
@@ -234,7 +234,7 @@ for cur_char = 1:length(test_character)
 end
 
 pause(1);
-% ppWrite(IO_ADD,222);
+% % ppWrite(IO_ADD,222);
 
 Screen('TextSize',w, 50);
 DrawFormattedText(w, 'Thank you', 'center', 'center', [255 255 255]);

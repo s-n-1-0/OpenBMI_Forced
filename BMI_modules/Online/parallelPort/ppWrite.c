@@ -8,20 +8,20 @@
 #define pDelayTime prhs[3]
 
 
-/* ppWrite(IO_ADDR, Value) or ppWrite(IO_ADDR, Value, SleepTime) is used 
+/* % ppWrite(IO_ADDR, Value) or % ppWrite(IO_ADDR, Value, SleepTime) is used 
    to send a trigger value to the parallel port that has 
    approx. 10 milliseconds duration, maybe a bit longer. Before and after this interval,
    the parallel port has to be set back to the value of 0.
-   ppWrite is usually called by a feedback routine during an BCI experiment.
+   % ppWrite is usually called by a feedback routine during an BCI experiment.
    Parallel port values are to be read by e.g. BrainVision Recorder.
 
-   As other triggers can be send during the 10ms interval, ppWrite has to check the 
+   As other triggers can be send during the 10ms interval, % ppWrite has to check the 
    current value on the parallel port at the end of the 10ms before sending a value of 0.
    This can unfortunately NOT be done by query to the parallel port directly (as
    the parallel port ist full duplex), but only by storing the value in a static variable
    called "portvalue".
  
-   ppWrite uses now the file ioPort.c for the io functionality. In ioPort 
+   % ppWrite uses now the file ioPort.c for the io functionality. In ioPort 
    the parallel port is accesed in windows nt save way.
  
    If you have problems with the parallelport see ioPort.c.
@@ -82,7 +82,7 @@ DWORD WINAPI ThreadFunc( LPVOID lpParam )
     currentvalue = 0;
   } 
   else {
-    //mexPrintf("ppWrite: trigger overlap on parport detected.\n");
+    //mexPrintf("% ppWrite: trigger overlap on parport detected.\n");
   }
   
   deleteLibrary(p->hLib);

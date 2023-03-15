@@ -1,3 +1,5 @@
+# Forced Repository
+OpenBMIのMi機能を強制的に実行させたサンプルコード
 # OpenBMI ver 3.0 is released.
 An open software package dedicated for the development of Brain-Computer Interfaces with various advanced pattern recognition algorithms
 

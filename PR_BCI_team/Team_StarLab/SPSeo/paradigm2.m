@@ -143,18 +143,18 @@ Screen('TextSize',w, 50);
 DrawFormattedText(w,'Closed your eyes\n\nPlease follow instructions\n\nClick to start','center','center',[255 255 255]); 
 Screen('Flip', w); 
 GetClicks(w);
-ppWrite(IO_ADD,77); 
+% ppWrite(IO_ADD,77); 
 Screen('Flip', w); 
 WaitSecs(rs_time);
-ppWrite(IO_ADD, 14);
+% ppWrite(IO_ADD, 14);
 DrawFormattedText(w,'Recording Resting state\n\nPlease follow instructions\n\nClick to start','center','center',[255 255 255]);
 Screen('Flip', w);
 GetClicks(w);
-ppWrite(IO_ADD,78);
+% ppWrite(IO_ADD,78);
 Screen('FillRect', w, [255 255 255], FixCross');
 Screen('Flip', w);
 WaitSecs(rs_time);
-ppWrite(IO_ADD, 14);
+% ppWrite(IO_ADD, 14);
 DrawFormattedText(w,'It will start in 3 secs','center','center',[255 255 255]);
 Screen('Flip', w);
 GetClicks(w);
@@ -191,7 +191,7 @@ result= 0;
 
 
 %% Start
-ppWrite(IO_ADD, 111);
+% ppWrite(IO_ADD, 111);
 s_cell = [];
 
 for n_char = 1:length(copy_task) 
@@ -234,7 +234,7 @@ for n_char = 1:length(copy_task)
     WaitSecs(0.5);
     Screen('CopyWindow', offw, w);
     Screen('Flip', w);
-    ppWrite(IO_ADD,p_trig);  
+    % ppWrite(IO_ADD,p_trig);  
     WaitSecs(1);
     
     for n_seq = 1:nsequence 
@@ -368,7 +368,7 @@ for n_char = 1:length(copy_task)
                     end
                 end
             else
-                dstRects =  CenterRectOnPointd([0 0 80 80], loc_layout(Draw_cell,1), loc_layout(Draw_cell,2)); %seo,,, [a,b]=CenterRectOnPointd[450 100 500 1300]¶ó°í ¿¹¸¦ µé¸é a=475, b=700 ³ª¿È
+                dstRects =  CenterRectOnPointd([0 0 80 80], loc_layout(Draw_cell,1), loc_layout(Draw_cell,2)); %seo,,, [a,b]=CenterRectOnPointd[450 100 500 1300]ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ a=475, b=700 ï¿½ï¿½ï¿½ï¿½
                 dstRects = dstRects - (10/11*6);
                 Screen('DrawTextures', w, images(Draw_cell,2), [],  dstRects');
             end
@@ -377,9 +377,9 @@ for n_char = 1:length(copy_task)
             %% trigger
             trig = ismember(Draw_cell, target_ind);  
             if sum(trig)      
-                ppWrite(IO_ADD,t_tri); 
+                % ppWrite(IO_ADD,t_tri); 
             else            
-                ppWrite(IO_ADD,n_tri); 
+                % ppWrite(IO_ADD,n_tri); 
             end 
 
             Screen('Flip', w, vbl + sti_Times);
@@ -402,7 +402,7 @@ for n_char = 1:length(copy_task)
     s_cell_final = [s_cell_final; s_cell ; [999 999 999 999 999 999]]; 
     s_cell = [];
     WaitSecs(1);
-    ppWrite(IO_ADD,14); 
+    % ppWrite(IO_ADD,14); 
 
 end
 
@@ -413,16 +413,16 @@ Screen('TextSize',w, 50);
 DrawFormattedText(w,'Recording Resting state\n\nPlease follow instructions','center','center',[255 255 255]);
 Screen('Flip', w);
 GetClicks(w);
-ppWrite(IO_ADD,78);
+% ppWrite(IO_ADD,78);
 Screen('FillRect', w, [255 255 255], FixCross');
 Screen('Flip', w);
 WaitSecs(rs_time);
-ppWrite(IO_ADD, 14);
+% ppWrite(IO_ADD, 14);
 DrawFormattedText(w,'Thank you','center','center',[255 255 255]);
 Screen('Flip', w);
 %%
 
-ppWrite(IO_ADD,222); 
+% ppWrite(IO_ADD,222); 
 GetClicks(w);
 
 pause(1);

@@ -7,7 +7,7 @@
 #define pAddr prhs[0]
 #define pData prhs[1]
 
-/* ppWriteStay(IO_ADDR, Value) is used like ppWrite. This function will not 
+/* % ppWriteStay(IO_ADDR, Value) is used like % ppWrite. This function will not 
    set the parallel port value to 0 after 10 ms. It has to be done by the user
    itself.
  

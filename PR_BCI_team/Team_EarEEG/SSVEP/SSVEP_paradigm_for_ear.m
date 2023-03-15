@@ -72,7 +72,7 @@ order_task=[3,1,2,3,1,3,1,1,3,1,3,2,1,3,2,1,3,2,1,3,3,1,2,2,1,3,2,2,3,2,1,2,1,2,
 %           5
 wd=wRect(3); h=wRect(4);
 
-% 2 3 4 À§Ä¡
+% 2 3 4 ï¿½ï¿½Ä¡
 x1=[wd/2-3*boxSize/2-btwBox, wd/2-boxSize/2, wd/2+boxSize/2+btwBox];
 x2=[wd/2-boxSize/2-btwBox, wd/2+boxSize/2, wd/2+3*boxSize/2+btwBox];
 y1=[h/2-boxSize/2, h/2-boxSize/2, h/2-boxSize/2];
@@ -111,20 +111,20 @@ Screen('TextSize', w, ceil(10));
 textbox = Screen('TextBounds', w, '+');
 
 write(tcp_ear, stimulusSTART);
-ppWrite(IO_ADD,111);
+% ppWrite(IO_ADD,111);
         write(tcp_ear, stimulusRESUME);
-        ppWrite(IO_ADD,22);
+        % ppWrite(IO_ADD,22);
 a1=0; a2=0; at=0;
 % 75    115
 
 for t=1:length(order_task)
     
     Priority(topPriorityLevel);
-    %% Pause ½ÇÇè ¹Ý ÇÏ°í Á» ½¬¾î¾ßÁö
+    %% Pause ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ï°ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 %     if ( t == ceil(length(order_task)/2) ) %&& ( length(order_task) > 50 )
      if (rem(t,15)==1) && (t~=1)
         write(tcp_ear, stimulusPAUSE);
-        ppWrite(IO_ADD,11);
+        % ppWrite(IO_ADD,11);
         [ keyIsDown, ~, keyCode ] = KbCheck;
         while ~keyCode(startKey)
             Screen('TextSize',w, Textsize);
@@ -133,7 +133,7 @@ for t=1:length(order_task)
             [ keyIsDown, ~, keyCode ] = KbCheck;
         end
         write(tcp_ear, stimulusRESUME);
-        ppWrite(IO_ADD,22);
+        % ppWrite(IO_ADD,22);
         Screen('TextSize',w, Textsize);
         DrawFormattedText(w,'SSVEP task will resume in 3 secs','center','center',[255 255 255]);
         Screen('Flip', w);
@@ -167,7 +167,7 @@ for t=1:length(order_task)
     
     % flickering
     eval(sprintf('write(tcp_ear, stimulus%d)',ot));
-    ppWrite(IO_ADD,ot);
+    % ppWrite(IO_ADD,ot);
     
     at=a1;
     a1=GetSecs();
@@ -203,7 +203,7 @@ for t=1:length(order_task)
                 Screen('Flip', w);
                 WaitSecs(2);
                 write(tcp_ear, stimulusEND);
-                ppWrite(IO_ADD,222);
+                % ppWrite(IO_ADD,222);
                 Screen('CloseAll');
                 ShowCursor;
                 fclose('all');
@@ -211,7 +211,7 @@ for t=1:length(order_task)
                 return;
             elseif keyCode(waitKey)
                 write(tcp_ear, stimulusPAUSE);
-                ppWrite(IO_ADD,11);
+                % ppWrite(IO_ADD,11);
                 while ~keyCode(startKey)
                     Screen('FillRect', w, black);
                     [ keyIsDown, ~, keyCode ] = KbCheck;
@@ -220,7 +220,7 @@ for t=1:length(order_task)
                     Screen('Flip', w);
                 end
                 write(tcp_ear, stimulusRESUME);
-                ppWrite(IO_ADD,22);
+                % ppWrite(IO_ADD,22);
                 Screen('TextSize',w, Textsize);
                 DrawFormattedText(w,'SSVEP task will resume in 3 secs','center','center',[255 255 255]);
                 Screen('Flip', w);
@@ -238,7 +238,7 @@ DrawFormattedText(w,'The end of experiment','center','center',[255 255 255]);
 Screen('Flip', w);
 WaitSecs(2);
 write(tcp_ear, stimulusEND);
-ppWrite(IO_ADD,222);
+% ppWrite(IO_ADD,222);
 Screen('CloseAll');
 ShowCursor;
 fclose('all');

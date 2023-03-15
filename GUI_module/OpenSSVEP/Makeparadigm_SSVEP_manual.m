@@ -144,18 +144,18 @@ FixCross = [X-1,Y-FixationSize,X+1,Y+FixationSize;X-FixationSize,Y-1,X+FixationS
 DrawFormattedText(w,'Closed your eyes\n\nPlease follow instructions\n\nClick to start','center','center',[255 255 255]);
 Screen('Flip', w);
 GetClicks(w);
-ppWrite(IO_ADD,77);
+% ppWrite(IO_ADD,77);
 Screen('Flip', w);
 WaitSecs(opt.rs_time);
-ppWrite(IO_ADD, 14);
+% ppWrite(IO_ADD, 14);
 DrawFormattedText(w,'Recording Resting state\n\nPlease follow instructions\n\nClick to start','center','center',[255 255 255]);
 Screen('Flip', w);
 GetClicks(w);
-ppWrite(IO_ADD,78);
+% ppWrite(IO_ADD,78);
 Screen('FillRect', w, [255 255 255], FixCross');
 Screen('Flip', w);
 WaitSecs(opt.rs_time);
-ppWrite(IO_ADD, 14);
+% ppWrite(IO_ADD, 14);
 DrawFormattedText(w,'It will start in 3 secs','center','center',[255 255 255]);
 Screen('Flip', w);
 GetClicks(w);
@@ -163,7 +163,7 @@ WaitSecs(3);
 Screen('Flip', w);
 
 % ppTrigger(111);
-ppWrite(IO_ADD,111);
+% ppWrite(IO_ADD,111);
 WaitSecs(4);
 Screen('TextSize', w, ceil(10));
 textbox = Screen('TextBounds', w, '+');
@@ -211,9 +211,9 @@ for t=1:length(order_task)
     Screen('DrawText', w, '+', x1(4)+s_size/2 - textbox(3)/2,...
         y1(4)+s_size/2 - textbox(4)/2, [128, 128, 128]);
     Screen('Flip',w);
-    ppWrite(IO_ADD,15);
+    % ppWrite(IO_ADD,15);
     WaitSecs(4);
-    ppWrite(IO_ADD,ot);
+    % ppWrite(IO_ADD,ot);
     %     ppTrigger(ot);
     %     switch order_task(t)
     %         case 1
@@ -269,7 +269,7 @@ for t=1:length(order_task)
         Screen('Flip',w);
     end
     disp(GetSecs() - a);
-    ppWrite(IO_ADD,14);
+    % ppWrite(IO_ADD,14);
     %     ppTrigger(123); % finishing stimuli
     Screen('TextSize', w, ceil(10));
     Screen('DrawText', w, '+', x1(1)+s_size/2 - textbox(3)/2,...
@@ -312,7 +312,7 @@ for t=1:length(order_task)
                 WaitSecs(1);
                 Screen('CloseAll');
                 %                 ppTrigger(222);
-                ppWrite(IO_ADD,222);
+                % ppWrite(IO_ADD,222);
                 fclose('all');
                 return;
             elseif keyCode(waitKey)
@@ -329,18 +329,18 @@ Screen('TextSize',w, 50);
 % DrawFormattedText(w,'Closed your eyes\n\nPlease follow instructions\n\nClick to start','center','center',[255 255 255]);
 % Screen('Flip', w);
 % GetClicks(w);
-% ppWrite(IO_ADD,77);
+% % ppWrite(IO_ADD,77);
 % Screen('Flip', w);
 % WaitSecs(opt.rs_time);
-% ppWrite(IO_ADD, 14);
+% % ppWrite(IO_ADD, 14);
 DrawFormattedText(w,'Recording Resting state\n\nPlease follow instructions\n\nClick to start','center','center',[255 255 255]);
 Screen('Flip', w);
 GetClicks(w);
-ppWrite(IO_ADD,78);
+% ppWrite(IO_ADD,78);
 Screen('FillRect', w, [255 255 255], FixCross');
 Screen('Flip', w);
 WaitSecs(opt.rs_time);
-ppWrite(IO_ADD, 14);
+% ppWrite(IO_ADD, 14);
 DrawFormattedText(w,'Thank you','center','center',[255 255 255]);
 Screen('Flip', w);
 WaitSecs(2);
@@ -352,7 +352,7 @@ WaitSecs(2);
 % WaitSecs(2);
 
 % End trigger
-ppWrite(IO_ADD,222);
+% ppWrite(IO_ADD,222);
 % ppTrigger(222);
 
 disp('Waiting for closing client socket');

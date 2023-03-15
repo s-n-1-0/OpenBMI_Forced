@@ -66,9 +66,9 @@ waitKey=KbName('*');
 test_character = spellerText;
 
 % load cell_order;
-% cell_order_all=cell_order_all(1:length(test_character),:,:,:); % ±ÛÀÚ ¼ö¸¸ °¡Á®¿À±â
+% cell_order_all=cell_order_all(1:length(test_character),:,:,:); % ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 order = importdata('C:\Users\cvpr\Desktop\Application_Demo\App\random_order_v3.mat');
-nsequence = nSequence; %°¢ ±ÛÀÚ´ç sequence ¼ö
+nsequence = nSequence; %ï¿½ï¿½ ï¿½ï¿½ï¿½Ú´ï¿½ sequence ï¿½ï¿½
 T_char=[];  % answers
 eog_target=[];
 eog_best=[];
@@ -121,8 +121,8 @@ pause(1);
 Snd('Play',beepY,rate);
 pause(1);
 %% Start
-ppWrite(IO_ADD, 111);
-for n_char = 1:length(test_character)   %%korea university ºÎºÐ
+% ppWrite(IO_ADD, 111);
+for n_char = 1:length(test_character)   %%korea university ï¿½Îºï¿½
 %     target_ind = find(test_character(n_char) == spell_char); %find the positions for target
     %% timer
     Screen('FillRect', offw, [0 0 0]);
@@ -155,24 +155,24 @@ for n_char = 1:length(test_character)   %%korea university ºÎºÐ
     WaitSecs(0.5);
     Screen('CopyWindow', offw, w);
     Screen('Flip', w);
-    ppWrite(IO_ADD,15);  % 15 start
+    % ppWrite(IO_ADD,15);  % 15 start
     WaitSecs(2);
     
-    for n_seq = 1:nsequence %nsequence ¸¸Å­ ÇÏ³ªÀÇ target character¸¦ ¹Ýº¹
+    for n_seq = 1:nsequence %nsequence ï¿½ï¿½Å­ ï¿½Ï³ï¿½ï¿½ï¿½ target characterï¿½ï¿½ ï¿½Ýºï¿½
         for n_run=1:12       %run 6X6 speller
             Screen('CopyWindow', offw, w);
             Draw_cell = order{n_seq}(n_run,:);
             
-            for j = Draw_cell %A presentation in a run -->>¿©±âµµ Á¡À§Ä¡ º¯°æ
+            for j = Draw_cell %A presentation in a run -->>ï¿½ï¿½ï¿½âµµ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
                 Screen('DrawText', w, '.', loc_layout(j,1), loc_layout(j,2) - 1.2 * ceil(text_size), [255, 255, 255]);
             end
             vbl = Screen('Flip', w, 0, 1);
             %% trigger
-            trig = ismember(Draw_cell, target_ind); %% Å¸°ÙºÎºÐÀÏ°æ¿ì¸¸ trigger
+            trig = ismember(Draw_cell, target_ind); %% Å¸ï¿½ÙºÎºï¿½ï¿½Ï°ï¿½ì¸¸ trigger
             if sum(trig)      %target
-                ppWrite(IO_ADD,2);
+                % ppWrite(IO_ADD,2);
             else            %non-target
-                ppWrite(IO_ADD,1);
+                % ppWrite(IO_ADD,1);
             end
             Screen('Flip', w, vbl + sti_Times);
             Screen('CopyWindow', offw, w);
@@ -184,7 +184,7 @@ for n_char = 1:length(test_character)   %%korea university ºÎºÐ
     Screen('Flip', w);
     
     WaitSecs(1);
-    ppWrite(IO_ADD,14); %online ÆÄÀÏÀÇ c_"nÃÊ±âÈ­->eog switch°¡ ¾Èµé¾î¿Àµµ·Ï
+    % ppWrite(IO_ADD,14); %online ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ c_"nï¿½Ê±ï¿½È­->eog switchï¿½ï¿½ ï¿½Èµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     
      if online
         tic;
@@ -207,7 +207,7 @@ for n_char = 1:length(test_character)   %%korea university ºÎºÐ
                 Screen('Flip', w);
                 WaitSecs(1);
                 Screen('CloseAll');
-                ppWrite(IO_ADD,20); %15=end
+                % ppWrite(IO_ADD,20); %15=end
                 fclose('all');
                 output_args = 'Re execute paradigm (Already connected with client)...';
                 return;
@@ -235,20 +235,20 @@ Screen('TextSize',w, 50);
 DrawFormattedText(w,'Recording Resting state\n\nPlease follow instructions','center','center',[255 255 255]);
 Screen('Flip', w);
 GetClicks(w);
-ppWrite(IO_ADD,78);
+% ppWrite(IO_ADD,78);
 Screen('FillRect', w, [255 255 255], FixCross');
 Screen('Flip', w);
 WaitSecs(rs_time);
-ppWrite(IO_ADD, 14);
+% ppWrite(IO_ADD, 14);
 DrawFormattedText(w,'Thank you','center','center',[255 255 255]);
 Screen('Flip', w);
 %%
 
-ppWrite(IO_ADD,222); %15=end
+% ppWrite(IO_ADD,222); %15=end
 GetClicks(w);
 pause(1);
-% ppWrite(IO_ADD,20); %15=end
-% ppWrite(IO_ADD,16); %finish
+% % ppWrite(IO_ADD,20); %15=end
+% % ppWrite(IO_ADD,16); %finish
 sca;
 fclose('all');
 

@@ -6,7 +6,7 @@
 #define pDataOut plhs[0]
 
 /*
-  ppWrite uses now the file ioPort.c for the io functionality. In ioPort 
+  % ppWrite uses now the file ioPort.c for the io functionality. In ioPort 
   the parallel port is accesed in windows nt save way.
  
   edit Max Sagebaum           02.11.2007       Added nt save io functions

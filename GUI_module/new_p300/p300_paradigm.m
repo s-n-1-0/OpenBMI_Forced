@@ -638,7 +638,7 @@ while(true)
     end
 end
 
-ppWrite(IO_ADD,a);  % 19 check
+% ppWrite(IO_ADD,a);  % 19 check
 set(handles.notiontxt,'String','Check connection and start paradigm');
 
 function tcpiptxt_Callback(hObject, eventdata, handles)
@@ -896,7 +896,7 @@ global IO_LIB IO_ADD
 port = get(handles.portNumber ,'String');
 IO_LIB=which('inpoutx64.dll');
 IO_ADD=hex2dec(port);
-ppWrite(IO_ADD,19);  % 19 check
+% ppWrite(IO_ADD,19);  % 19 check
 set(handles.notiontxt,'String','Check trigger... "19" in your brainvision');
 
 

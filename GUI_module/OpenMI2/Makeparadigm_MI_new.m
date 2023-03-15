@@ -74,7 +74,7 @@ end
 for i=1:length(type_sti)
     a1(i,1:num_trial)=i;
 end
-for ii=1:num_trial % Å¬·¡½º °³¼ö . ¿©±â Æ÷¹® ¾ø¾Ù¼ö ¼ö ÀÖÀ»°Å°¡Æ°µ©?
+for ii=1:num_trial % Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ . ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ù¼ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Å°ï¿½Æ°ï¿½ï¿½?
 a1(:,ii)=(a1(:,ii).*type_sti')';
 end
 idd=find(a1);
@@ -101,7 +101,7 @@ Screen('TextSize',w, Textsize);
 DrawFormattedText(w,'Mouse click to start MI experiment \n\n (Press s to pause, esc to stop)','center','center',[255 255 255]);
 Screen('Flip', w);
 GetClicks(w);
-ppWrite(IO_ADD,111);
+% ppWrite(IO_ADD,111);
 
 escapeKey = KbName('esc');
 waitKey=KbName('*');
@@ -117,7 +117,7 @@ waitKey=KbName('*');
 [X,Y] = RectCenter(wRect);
 FixationSize = 20;
 FixCross = [X-1,Y-FixationSize,X+1,Y+FixationSize;X-FixationSize,Y-1,X+FixationSize,Y+1];
-% screen size º¯È­¿¡ µû¸¥, È­»ìÇ¥ size º¯È­... ¸¦ ÇÑ°Çµ¥... À½...
+% screen size ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, È­ï¿½ï¿½Ç¥ size ï¿½ï¿½È­... ï¿½ï¿½ ï¿½Ñ°Çµï¿½... ï¿½ï¿½...
 % if ischar(size_screen)
 %     ssize=[X-200,Y-200,X+200,Y+200];
 % else
@@ -126,13 +126,13 @@ FixCross = [X-1,Y-FixationSize,X+1,Y+FixationSize;X-FixationSize,Y-1,X+FixationS
 
 %% paradigm start
     Screen('Flip', w);
-    ppWrite(IO_ADD,111);
+    % ppWrite(IO_ADD,111);
     WaitSecs(time_blank);
 
 for num_stimulus=1:length(sti_stack)
 %     if num_stimulus==50 || num_stimulus==100
     
-    % Pause ½ÇÇè ¹Ý ÇÏ°í Á» ½¬¾î¾ßÁö
+    % Pause ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ï°ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     if num_stimulus==length(sti_stack)/2 && length(sti_stack)>50
 
         Screen('TextSize',w, Textsize);
@@ -158,7 +158,7 @@ for num_stimulus=1:length(sti_stack)
                 WaitSecs(1);
                 Screen('CloseAll');
 %                 ppTrigger(222);
-                ppWrite(IO_ADD,222);
+                % ppWrite(IO_ADD,222);
                 fclose('all');
                 return
             elseif keyCode(waitKey)
@@ -176,13 +176,13 @@ for num_stimulus=1:length(sti_stack)
     if sound
         Snd('Play',beep);
     end
-    ppWrite(IO_ADD,15);
+    % ppWrite(IO_ADD,15);
     WaitSecs(time_cross);
     
     switch sti_stack(num_stimulus)
         case 1 % right class
             n1=n1+1;
-            ppWrite(IO_ADD,1);
+            % ppWrite(IO_ADD,1);
             image=img_right;
             tex1=Screen('MakeTexture', w, image );
             Screen('DrawTexture', w, tex1);
@@ -192,7 +192,7 @@ for num_stimulus=1:length(sti_stack)
 
         case 2 % left class
             n2=n2+1;
-            ppWrite(IO_ADD,2);
+            % ppWrite(IO_ADD,2);
             image=img_left;
             tex1=Screen('MakeTexture', w, image );
             Screen('DrawTexture', w, tex1);
@@ -202,7 +202,7 @@ for num_stimulus=1:length(sti_stack)
             
         case 3 % foot class
             n3=n3+1;
-            ppWrite(IO_ADD,3);
+            % ppWrite(IO_ADD,3);
             image=img_down;
             tex1=Screen('MakeTexture', w, image );
             Screen('DrawTexture', w, tex1);
@@ -218,7 +218,7 @@ for num_stimulus=1:length(sti_stack)
     disp(sprintf('1: %.0f\t2: %.0f\t3: %.0f',n1,n2,n3))
     
 end
-ppWrite(IO_ADD,222);
+% ppWrite(IO_ADD,222);
 Screen('TextSize',w, 50);
 DrawFormattedText(w, 'Thank you', 'center', 'center', [255 255 255]);
 Screen('Flip', w);

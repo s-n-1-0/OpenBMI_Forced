@@ -64,9 +64,9 @@ else  %test procedures
 end
 
 % load cell_order;
-% cell_order_all=cell_order_all(1:length(test_character),:,:,:); % ±ÛÀÚ ¼ö¸¸ °¡Á®¿À±â
+% cell_order_all=cell_order_all(1:length(test_character),:,:,:); % ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 load cell_order_new;
-nsequence = 10; %°¢ ±ÛÀÚ´ç sequence ¼ö
+nsequence = 10; %ï¿½ï¿½ ï¿½ï¿½ï¿½Ú´ï¿½ sequence ï¿½ï¿½
 T_char=[];  % answers
 eog_target=[];
 eog_best=[];
@@ -90,18 +90,18 @@ t_text_size = 60;
 n_text_size = 50;
 face_size = t_text_size+70;
 
-sti_Times = 0.135;%per/S 10 %%¿©±â ´Ù½ÃÇÑ¹ø Ã¼Å©ÇÒ°Í
+sti_Times = 0.135;%per/S 10 %%ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ï¿½Ñ¹ï¿½ Ã¼Å©ï¿½Ò°ï¿½
 sti_Interval = 0.05;%per/S
 
 vbl = Screen(w, 'Flip');
 ifi = Screen('GetFlipInterval', w);
 
-% slack=ifi/2; %% ½ÃÀÛºÎºÐ timer
+% slack=ifi/2; %% ï¿½ï¿½ï¿½ÛºÎºï¿½ timer
 count_speed = 1.8; %count-down speed
 normal_layout(w, test_character_show, spell_char, loc_layout, n_text_size);
 % load cell_order
 
-for n_char = 1:length(test_character)   %%korea university ºÎºÐ
+for n_char = 1:length(test_character)   %%korea university ï¿½Îºï¿½
     target_ind = find(test_character(n_char) == spell_char); %find the positions for target
     %% timer
     normal_layout(w, test_character_show, spell_char, loc_layout, n_text_size);
@@ -146,9 +146,9 @@ for n_char = 1:length(test_character)   %%korea university ºÎºÐ
     start_1 = Screen('Flip', w, 0 + count_speed);
     pause(2);
     
-    %     ppWrite(IO_ADD,15);  % 15 start
+    %     % ppWrite(IO_ADD,15);  % 15 start
     tic
-    for n_seq = 1:nsequence %nsequence ¸¸Å­ ÇÏ³ªÀÇ target character¸¦ ¹Ýº¹
+    for n_seq = 1:nsequence %nsequence ï¿½ï¿½Å­ ï¿½Ï³ï¿½ï¿½ï¿½ target characterï¿½ï¿½ ï¿½Ýºï¿½
         [ keyIsDown, seconds, keyCode ] = KbCheck;
         if keyIsDown
             if keyCode(escapeKey)
@@ -195,7 +195,7 @@ for n_char = 1:length(test_character)   %%korea university ºÎºÐ
                     end
                 end
             end
-            if run_eog  %±ôºý °Å¸®´Â°Å Á¦°Å
+            if run_eog  %ï¿½ï¿½ï¿½ï¿½ ï¿½Å¸ï¿½ï¿½Â°ï¿½ ï¿½ï¿½ï¿½ï¿½
                 if ~isempty(eog_target)
                     if eog_target(1) ~= 0
                                             Screen('TextSize',w, n_text_size);
@@ -214,15 +214,15 @@ for n_char = 1:length(test_character)   %%korea university ºÎºÐ
             end
             %% trigger
             if varargin{1}==-1 || isempty(varargin)
-                trig = ismember(Draw_cell, target_ind); %% Å¸°ÙºÎºÐÀÏ°æ¿ì¸¸ trigger
+                trig = ismember(Draw_cell, target_ind); %% Å¸ï¿½ÙºÎºï¿½ï¿½Ï°ï¿½ì¸¸ trigger
                 if sum(trig)      %target
-                    ppWrite(IO_ADD,1);
+                    % ppWrite(IO_ADD,1);
                 else            %non-target
-                    ppWrite(IO_ADD,2);
+                    % ppWrite(IO_ADD,2);
                 end
             else
                 %                 t_num=find(sum(ismember( spell_num,Draw_cell)')==6);
-                ppWrite(IO_ADD,n_run);
+                % ppWrite(IO_ADD,n_run);
             end
             
             %% online
@@ -268,13 +268,13 @@ for n_char = 1:length(test_character)   %%korea university ºÎºÐ
                 end
             end
             %%
-            if run_eog   %eog·Î ¼±ÅÃÇÏ´Â ºÎºÐ
+            if run_eog   %eogï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Îºï¿½
                 fileID2 = fopen(['subject_log\' FILE '_switch.txt'], 'r');
                 formatSpec = '%f';
                 A2 = fscanf(fileID2,formatSpec);
                 fclose(fileID2);
                 
-                fileID3 = fopen(['subject_log\' FILE '_switch.txt'], 'w'); % matlab º¸³»±â
+                fileID3 = fopen(['subject_log\' FILE '_switch.txt'], 'w'); % matlab ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 fprintf(fileID3,'%5d\n',0);
                 fclose(fileID3);
                 if A2==1;
@@ -298,7 +298,7 @@ for n_char = 1:length(test_character)   %%korea university ºÎºÐ
                 end
             end
             
-            if run_eog  %±ôºý °Å¸®´Â°Å Á¦°ÅS
+            if run_eog  %ï¿½ï¿½ï¿½ï¿½ ï¿½Å¸ï¿½ï¿½Â°ï¿½ ï¿½ï¿½ï¿½ï¿½S
                 if ~isempty(eog_target)
                     if eog_target(1) ~= 0
                                                  Screen('TextSize',w, n_text_size);
@@ -320,7 +320,7 @@ for n_char = 1:length(test_character)   %%korea university ºÎºÐ
             start_1 = start_3;    
         end
         
-        if run_eog   %eog·Î ¼±ÅÃÇÏ´Â ºÎºÐ
+        if run_eog   %eogï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Îºï¿½
             if A2
                 break;
             end
@@ -339,7 +339,7 @@ for n_char = 1:length(test_character)   %%korea university ºÎºÐ
     end
     
     
-    if run_eog   %eog·Î ¼±ÅÃÇÏ´Â ºÎºÐ
+    if run_eog   %eogï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Îºï¿½
         if A2
             A2=0;
         end
@@ -352,7 +352,7 @@ for n_char = 1:length(test_character)   %%korea university ºÎºÐ
             str = eog_best %fscanf(fileID2,formatSpec2);
             T_char=[T_char str];
             SAVE{n_char}.char=str;
-            SAVE{n_char}.time=toc; %   WaitSecs(2); ÀÖÀ¸¹Ç·Î -2s ÇØÁÖ±â ÈñÁø-¿µÅÂ-»óÁØ +2ÃÊ¾¿ ÇØÁÙ°Í
+            SAVE{n_char}.time=toc; %   WaitSecs(2); ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ -2s ï¿½ï¿½ï¿½Ö±ï¿½ ï¿½ï¿½ï¿½ï¿½-ï¿½ï¿½ï¿½ï¿½-ï¿½ï¿½ï¿½ï¿½ +2ï¿½Ê¾ï¿½ ï¿½ï¿½ï¿½Ù°ï¿½
         end
     end
     WaitSecs(2);
@@ -365,21 +365,21 @@ for n_char = 1:length(test_character)   %%korea university ºÎºÐ
             fclose(fileID2);
             T_char=[T_char str];
             SAVE{n_char}.char=str;
-            SAVE{n_char}.time=toc-2; %   WaitSecs(2); ÀÖÀ¸¹Ç·Î -2s ÇØÁÖ±â
+            SAVE{n_char}.time=toc-2; %   WaitSecs(2); ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ -2s ï¿½ï¿½ï¿½Ö±ï¿½
         end
     end
     
     Screen('Flip', w);
-    ppWrite(IO_ADD,14); %online ÆÄÀÏÀÇ c_"nÃÊ±âÈ­->eog switch°¡ ¾Èµé¾î¿Àµµ·Ï
+    % ppWrite(IO_ADD,14); %online ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ c_"nï¿½Ê±ï¿½È­->eog switchï¿½ï¿½ ï¿½Èµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     
 end
-ppWrite(IO_ADD,20); %15=end
+% ppWrite(IO_ADD,20); %15=end
 if run_feedback
     save(['subject_log\' FILE_ '_MATLAB1_DATA'], 'SAVE');
 end
 pause(1);
-ppWrite(IO_ADD,20); %15=end
-% ppWrite(IO_ADD,16); %finish
+% ppWrite(IO_ADD,20); %15=end
+% % ppWrite(IO_ADD,16); %finish
 Screen('CloseAll');
 fclose('all');
 end

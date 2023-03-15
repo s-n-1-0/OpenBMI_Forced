@@ -46,14 +46,14 @@ stimulus3=[padding; uint64(3); timestamp];
 % send trigger
 while true
     write(t, stimulus1);
-    ppWrite(IO_ADD, 1);
+    % ppWrite(IO_ADD, 1);
     pause(1);
     
     write(t, stimulus2);
-    ppWrite(IO_ADD, 2);
+    % ppWrite(IO_ADD, 2);
     pause(1);
     
     write(t, stimulus3);
-    ppWrite(IO_ADD, 3);
+    % ppWrite(IO_ADD, 3);
     pause(1);
 end

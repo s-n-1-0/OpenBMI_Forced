@@ -97,17 +97,17 @@ end
 
 % load cell_order;
 load random_cell_order;
-nsequence = nSequence; %°¢ ±ÛÀÚ´ç sequence ¼ö
+nsequence = nSequence; %ï¿½ï¿½ ï¿½ï¿½ï¿½Ú´ï¿½ sequence ï¿½ï¿½
 T_char=[];  % answers
 eog_target=[];
 eog_best=[];
 %%
 
 if ischar(screenSize) && strcmp(screenSize,'full')
-    Screen('Preference', 'SkipSyncTests', 1);       % ÁÖÀÇ
+    Screen('Preference', 'SkipSyncTests', 1);       % ï¿½ï¿½ï¿½ï¿½
     [w, rect] = Screen('OpenWindow', screenNum );
 else
-    Screen('Preference', 'SkipSyncTests', 1);       % ÁÖÀÇ
+    Screen('Preference', 'SkipSyncTests', 1);       % ï¿½ï¿½ï¿½ï¿½
     [w, rect] = Screen('OpenWindow', screenNum,[], screenSize);
     % [w, rect] = Screen('OpenWindow', screenNum,[], [0 0 1280 720]);
 end
@@ -131,7 +131,7 @@ ifi = Screen('GetFlipInterval', w);
 count_speed = 1.8; %count-down speed
 normal_layout(w, test_character_show, spell_char, loc_layout, n_text_size);
 
-for n_char = 1:length(test_character)   %%korea university ºÎºÐ
+for n_char = 1:length(test_character)   %%korea university ï¿½Îºï¿½
     target_ind = find(test_character(n_char) == spell_char); %find the positions for target
     %% timer
     normal_layout(w, test_character_show, spell_char, loc_layout, n_text_size);
@@ -176,9 +176,9 @@ for n_char = 1:length(test_character)   %%korea university ºÎºÐ
     start_1 = Screen('Flip', w, 0 + count_speed);
     pause(2);
     
-        ppWrite(IO_ADD,15);  % 15 start
+        % ppWrite(IO_ADD,15);  % 15 start
     tic
-    for n_seq = 1:nsequence %nsequence ¸¸Å­ ÇÏ³ªÀÇ target character¸¦ ¹Ýº¹
+    for n_seq = 1:nsequence %nsequence ï¿½ï¿½Å­ ï¿½Ï³ï¿½ï¿½ï¿½ target characterï¿½ï¿½ ï¿½Ýºï¿½
      
         
         for n_run=1:12       %run 6X6 speller
@@ -217,15 +217,15 @@ for n_char = 1:length(test_character)   %%korea university ºÎºÐ
 
             %% trigger
             if varargin{1,1}{1,2}==-1 || isempty(varargin)
-                trig = ismember(Draw_cell, target_ind); %% Å¸°ÙºÎºÐÀÏ°æ¿ì¸¸ trigger
+                trig = ismember(Draw_cell, target_ind); %% Å¸ï¿½ÙºÎºï¿½ï¿½Ï°ï¿½ì¸¸ trigger
                 if sum(trig)      %target
-                    ppWrite(IO_ADD,1);
+                    % ppWrite(IO_ADD,1);
                 else            %non-target
-                    ppWrite(IO_ADD,2);
+                    % ppWrite(IO_ADD,2);
                 end
             else
                 %                 t_num=find(sum(ismember( spell_num,Draw_cell)')==6);
-                ppWrite(IO_ADD,n_run);
+                % ppWrite(IO_ADD,n_run);
             end
             
             %% online
@@ -268,18 +268,18 @@ for n_char = 1:length(test_character)   %%korea university ºÎºÐ
     
     if run_feedback
 
-            fileID2 = fopen([direct '\log\_char.txt'],'r'); % selected  char matlab º¸³»±â
+            fileID2 = fopen([direct '\log\_char.txt'],'r'); % selected  char matlab ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 %             fileID2 = fopen([pwd '\OpenBMI-master\log\_char.txt'], 'r'); %
             formatSpec2 = '%c';
             str=fscanf(fileID2,formatSpec2);
             fclose(fileID2);
             T_char=[T_char str];
             SAVE{n_char}.char=str;
-            SAVE{n_char}.time=toc-2; %   WaitSecs(2); ÀÖÀ¸¹Ç·Î -2s ÇØÁÖ±â
+            SAVE{n_char}.time=toc-2; %   WaitSecs(2); ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ -2s ï¿½ï¿½ï¿½Ö±ï¿½
     end
     
     Screen('Flip', w);
-    ppWrite(IO_ADD,14); %online ÆÄÀÏÀÇ c_"nÃÊ±âÈ­->eog switch°¡ ¾Èµé¾î¿Àµµ·Ï
+    % ppWrite(IO_ADD,14); %online ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ c_"nï¿½Ê±ï¿½È­->eog switchï¿½ï¿½ ï¿½Èµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  %%
 tic
 while toc < 2
@@ -305,13 +305,13 @@ while toc < 2
 end
 
 end
-ppWrite(IO_ADD,20); %15=end
+% ppWrite(IO_ADD,20); %15=end
 if run_feedback
 %     save([pwd '\OpenBMI-master\log\SAVE'], 'SAVE');   
 save(fullfile(direct, 'log',sprintf('%d%02d%02d_%02d.%02d_p300_param.mat',c(1:5))),'SAVE');    
 end
 pause(1);
-ppWrite(IO_ADD,20); %15=end
+% ppWrite(IO_ADD,20); %15=end
 Screen('CloseAll');
 fclose('all');
 

@@ -127,18 +127,18 @@ Screen('TextSize',w, 50);
 DrawFormattedText(w,'Closed your eyes\n\nPlease follow instructions\n\nClick to start','center','center',[255 255 255]); 
 Screen('Flip', w); 
 GetClicks(w);
-ppWrite(IO_ADD,77); 
+% ppWrite(IO_ADD,77); 
 Screen('Flip', w); 
 WaitSecs(rs_time);
-ppWrite(IO_ADD, 14);
+% ppWrite(IO_ADD, 14);
 DrawFormattedText(w,'Recording Resting state\n\nPlease follow instructions\n\nClick to start','center','center',[255 255 255]);
 Screen('Flip', w);
 GetClicks(w);
-ppWrite(IO_ADD,78);
+% ppWrite(IO_ADD,78);
 Screen('FillRect', w, [255 255 255], FixCross');
 Screen('Flip', w);
 WaitSecs(rs_time);
-ppWrite(IO_ADD, 14);
+% ppWrite(IO_ADD, 14);
 DrawFormattedText(w,'It will start in 3 secs','center','center',[255 255 255]);
 Screen('Flip', w);
 GetClicks(w);
@@ -171,10 +171,10 @@ a_tri = 3;
 
 result= 0;
 %% Start
-ppWrite(IO_ADD, 111);
+% ppWrite(IO_ADD, 111);
 for n_char = 1:length(copy_task) 
     
-    p_trig = c_trig; %seo,,, 15¿¡ 16Áý¾î³ÖÀ½ °á±¹ 16µÊ,,, ÀÌÁþ ¿ÖÇÏÂ¡   
+    p_trig = c_trig; %seo,,, 15ï¿½ï¿½ 16ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½á±¹ 16ï¿½ï¿½,,, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Â¡   
     lay_char = spell_char;
     layout = @spell_layout;
     chat_flag = true;
@@ -212,7 +212,7 @@ for n_char = 1:length(copy_task)
     WaitSecs(0.5);
     Screen('CopyWindow', offw, w); 
     Screen('Flip', w);
-    ppWrite(IO_ADD,p_trig);  
+    % ppWrite(IO_ADD,p_trig);  
     WaitSecs(1);
     
     for  n_seq = 1:nsequence 
@@ -266,9 +266,9 @@ for n_char = 1:length(copy_task)
             %% trigger
             trig = ismember(Draw_cell, target_ind); 
             if sum(trig)      
-                ppWrite(IO_ADD,t_tri); 
+                % ppWrite(IO_ADD,t_tri); 
             else            
-                ppWrite(IO_ADD,n_tri); 
+                % ppWrite(IO_ADD,n_tri); 
             end 
             Screen('Flip', w, vbl + sti_Times);
             Screen('CopyWindow', offw, w);
@@ -280,7 +280,7 @@ for n_char = 1:length(copy_task)
     Screen('Flip', w);
     
     WaitSecs(1);
-    ppWrite(IO_ADD,14); 
+    % ppWrite(IO_ADD,14); 
     
     if online 
         tic;
@@ -313,7 +313,7 @@ for n_char = 1:length(copy_task)
                 Screen('Flip', w);
                 WaitSecs(1);
                 Screen('CloseAll');
-                ppWrite(IO_ADD,20); 
+                % ppWrite(IO_ADD,20); 
                 fclose('all');
                 output_args = 'Re execute paradigm (Already connected with client)...';
                 return;
@@ -338,16 +338,16 @@ Screen('TextSize',w, 50);
 DrawFormattedText(w,'Recording Resting state\n\nPlease follow instructions','center','center',[255 255 255]);
 Screen('Flip', w);
 GetClicks(w);
-ppWrite(IO_ADD,78);
+% ppWrite(IO_ADD,78);
 Screen('FillRect', w, [255 255 255], FixCross');
 Screen('Flip', w);
 WaitSecs(rs_time);
-ppWrite(IO_ADD, 14);
+% ppWrite(IO_ADD, 14);
 DrawFormattedText(w,'Thank you','center','center',[255 255 255]);
 Screen('Flip', w);
 %%
 
-ppWrite(IO_ADD,222); 
+% ppWrite(IO_ADD,222); 
 GetClicks(w);
 pause(1);
 
